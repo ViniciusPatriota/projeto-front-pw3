@@ -1,0 +1,25 @@
+/* CONTAINER DO MENU */
+.navbar{
+    display:flex;
+    justify-content: space-between;
+    background-color: darkblue;
+    padding: 1em;
+}
+
+/* REGRAS DA LISTA DE LINKS */
+.list{
+    display:flex;
+    list-style: none;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* REGRAS DOS LINKS */
+.item{
+    margin-right: 1em;
+    color: #FFF;
+}
+.logo{
+    width: 120px;
+    
+}
