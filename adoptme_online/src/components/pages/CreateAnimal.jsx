@@ -7,7 +7,7 @@ import style from "./CreateAnimal.module.css";
 
 const CreateAnimal = () => {
     return(
-        <section className={style.create_user_container}>
+        <section className={style.create_animal_container}>
             
             <h1>CADASTRAR NOVO PET</h1>
 
@@ -21,13 +21,13 @@ const CreateAnimal = () => {
                 type='text'
                 name='txt_raca'
                 text='Raça'
-                placeHolder='Digite a'           
+                placeHolder='Digite a raça do animal'           
             />
             <Input
-                type='date'
-                name='data_nasc'
-                text='Data de nascimento do pet'
-                placeHolder='Crie uma senha com pelo menos 8 caracteres'           
+                type='text'
+                name='data_nac'
+                text='Idade do pet em meses'
+                placeHolder='Digite a idade do pet'           
             />
             <Select
                 name='gênero'

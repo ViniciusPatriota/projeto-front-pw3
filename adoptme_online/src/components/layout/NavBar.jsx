@@ -23,6 +23,14 @@ const NavBar =()=>{
                 <Link to='/listAnimals'>
                 <li className={style.item}>LISTAR PETS</li>
                 </Link>
+                
+                <Link to='/logIn'>
+                <li className={style.item}>Login</li>
+                </Link>
+
+                <Link to='/singUp'>
+                <li className={style.item}>Sing Up</li>
+                </Link>
             </ul>
         </nav>
         <Outlet/>
