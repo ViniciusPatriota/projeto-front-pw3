@@ -8,7 +8,8 @@ import CadastrarAnimal from './components/pages/CreateAnimal'
 import ListarAnimais from './components/pages/ListAnimals' 
 // import CadastrarUsuario from './components/pages/CreateUser' 
 // import LoginUser from './components/pages/LoginUser'
-import Container from './components/layout/Conteiner'
+import Container from './components/layout/Container'
+import DetailAnimal from './components/pages/DetailPet'
 
 
 function App() {
@@ -24,8 +25,9 @@ function App() {
 
               <Route path='/' element={<NavBar />}>
                 <Route path='/' element={<Home />}/>
-                <Route path='/listAnimals' element={<ListarAnimais />}/>
+                <Route path='/listAnimal' element={<ListarAnimais />}/>
                 <Route path='/createAnimal' element={<CadastrarAnimal />}/>
+                <Route path='/detailPet/:id_animal' element={<DetailAnimal />}/>
                 {/* <Route path='/logIn' element={<LoginUser/>}/>
                 <Route path='/singUp' element={<CadastrarUsuario />}/> */}
               </Route>

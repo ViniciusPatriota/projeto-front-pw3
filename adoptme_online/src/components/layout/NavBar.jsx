@@ -20,7 +20,7 @@ const NavBar =()=>{
                 <li className={style.item}>CADASTRAR PETS</li>
                 </Link>
 
-                <Link to='/listAnimals'>
+                <Link to='/listAnimal'>
                 <li className={style.item}>LISTAR PETS</li>
                 </Link>
                 

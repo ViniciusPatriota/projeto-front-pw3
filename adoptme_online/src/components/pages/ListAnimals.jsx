@@ -9,17 +9,16 @@ import ContainerPet from '../layout/ContainerPet';
 
 import style from './ListAnimals.module.css'
 
-import cavernas from '../../assets/gato_1.jpg'
+import gato from '../../assets/gato_1.jpg'
 
 const ListPets = () => {
 
-    /* CRIAÇAO DO STATE DOS DADOS DOS LIVROS */
+    /* CRIAÇAO DO STATE DOS DADOS */
     const [pets, setPets] = useState([]);
 
-    /* RECUPERA OS DADOS DOS LIVROS DO BACKEND */
     useEffect(()=>{
 
-        fetch('http://localhost:5000/listagemGeneros', {
+        fetch('http://localhost:5000/listagemAnimais', {
             method: 'GET',
             mode:'cors',
             headers:{
@@ -31,7 +30,7 @@ const ListPets = () => {
             .then((resp)=>resp.json())
             .then((data)=>{
                 console.log('PETS: ' + data.data);
-                setBooks(data.data);
+                setPets(data.data);
                 console.log('STATE: ' + pets);
             })
             .catch((err)=>{console.log(err)});
@@ -51,11 +50,11 @@ const ListPets = () => {
                         pets.map((pet)=>(
                             // console.log(pet.epecie)
                             <CardPet
-                                id_pet={pet.id_animal}
+                                id_animal={pet.id_animal}
                                 especie={pet.especie}
                                 raca={pet.raca}
-                                imagem={cavernas}
-                                key={pet.id_livro}
+                                imagem={gato}
+                                key={pet.id_animal}
                             />
                         ))
                     }

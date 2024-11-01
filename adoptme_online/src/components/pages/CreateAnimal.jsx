@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import style from './CreateAnimal.module.css';
 import Input from "../forms/Input";
 import Select from "../forms/Select";
@@ -7,6 +8,9 @@ import Button from "../forms/Button";
 const CreateAnimal = () => {
     /* Define o state dos dados para categorias de gênero de animais */
     const [generos, setGeneros] = useState([]);
+
+    const navigate = useNavigate();
+
 
     /* State para armazenar o objeto JSON do animal */
     const [animal, setAnimal] = useState({
@@ -31,8 +35,8 @@ const CreateAnimal = () => {
 
     /* Verificar se o formulário está completo */
     useEffect(() => {
-        const { especie, raca, idade_meses, genero } = animal;
-        const isValid = especie.trim() && raca.trim() && idade_meses.trim() && !isNaN(idade_meses) && genero;
+        const { especie, raca, idade_meses, genero, descricao } = animal;
+        const isValid = especie.trim() && raca.trim() && idade_meses.trim() && !isNaN(idade_meses) && genero && descricao;
         setIsFormValid(isValid);
     }, [animal]);
 
@@ -70,8 +74,7 @@ const CreateAnimal = () => {
         .then((resp) => resp.json())
         .then((data) => {
             console.log(data);
-            alert('Animal cadastrado com sucesso!');
-            // Navegação ou reset do formulário pode ser feita aqui
+            navigate('/listAnimal',{state:'ANIMAL CADASTRADO COM SUCESSO!'});            // Navegação ou reset do formulário pode ser feita aqui
         })
         .catch((err) => {
             console.log('Erro ao cadastrar animal:', err);
@@ -121,6 +124,15 @@ const CreateAnimal = () => {
                     onChange={handlerChangeAnimal}
                     value={animal.idade_meses}
                 />
+                <Input
+                    type="text"
+                    name="descricao"
+                    placeHolder="Digite a descricão do animal"
+                    text="Descrição do animal"
+                    onChange={handlerChangeAnimal}
+                    value={animal.descricao}
+                />
+                
 
                 <Select
                     name="genero"
@@ -131,7 +143,7 @@ const CreateAnimal = () => {
                 />
 
                 <Button 
-                    rotulo="Cadastrar Pet" 
+                    rotulo="Cadastrar Animal" 
                     type="submit" 
                     disabled={!isFormValid}  // Desabilita o botão se o formulário não for válido
                 />

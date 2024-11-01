@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom'
 import style from './button.module.css'
 
-const Button = ({label, router, cod_pet}) => {
+const Button = ({label, router, id_animal}) => {
     return(
         <div className={style.buttonContainer}>
-            <Link to={`${router}${cod_pet}`}>
+            <Link to={`${router}${id_animal}`}>
             <button>{label}</button>
             </Link>
         </div>
