@@ -17,6 +17,7 @@ const CreateAnimal = () => {
         especie: '',
         raca: '',
         idade_meses: '',
+        descricao: '',
         genero: '',
     });
 

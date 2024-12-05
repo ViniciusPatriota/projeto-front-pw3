@@ -10,7 +10,7 @@ const DetailPet = () => {
     console.log('CODIGO DO LIVRO: ' + id_animal)
 
     /* CRIAÇÃO DA STATE DO DADOS DO LIVRO */
-    const [pet, setPet] = useState({})
+    const [animal, setAnimal] = useState({})
 
     /* RECUPERANDO OS DADOS DE LIVRO PARA A EDIÇAO */
     useEffect(()=>{
@@ -26,7 +26,7 @@ const DetailPet = () => {
         })
             .then((resp)=>resp.json())
             .then((data)=>{
-            setPet(data.data);
+            setAnimal(data.data);
             console.log('DADOS DO ANIMAL'+ data.data);
         })
         .catch((err)=>{console.log(err)});
@@ -40,19 +40,23 @@ const DetailPet = () => {
             </div>
 
             <div className={style.info}>
-                <span className={style.especie}>{pet.especie}</span>
-                <span className={style.raca}>{pet.raca}</span>
+                <span className={style.especie}>{animal.especie}</span>
+                <span className={style.raca}>{animal.raca}</span>
                 <span className={style.descricao}>
-                    {pet.descricao}
+                    {animal.descricao}
                 </span>
             
                 <div className={style.container_buttons}>
                     <Button 
                         label='EDITAR'
+                        router= '/updateAnimal/'
+                        id_animal={animal.id_animal}
                     />
 
                     <Button 
                         label='EXCLUIR'
+                        router = '/deleteAnimal/'
+                        id_animal={animal.id_animal}
                     />
 
                 </div>

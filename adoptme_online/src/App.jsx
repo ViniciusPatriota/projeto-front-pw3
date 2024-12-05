@@ -10,6 +10,8 @@ import ListarAnimais from './components/pages/ListAnimals'
 // import LoginUser from './components/pages/LoginUser'
 import Container from './components/layout/Container'
 import DetailAnimal from './components/pages/DetailPet'
+import DeleteAnimal from './components/pages/DeleteAnimal'
+import UpdateAnimal from './components/pages/UpdateAnimal'
 
 
 function App() {
@@ -30,6 +32,8 @@ function App() {
                 <Route path='/detailPet/:id_animal' element={<DetailAnimal />}/>
                 {/* <Route path='/logIn' element={<LoginUser/>}/>
                 <Route path='/singUp' element={<CadastrarUsuario />}/> */}
+                <Route path='/deleteAnimal/:id_animal' element={<DeleteAnimal />} />
+                <Route path='/updateAnimal/:id_animal' element={<UpdateAnimal />} />
               </Route>
 
             </Routes>
